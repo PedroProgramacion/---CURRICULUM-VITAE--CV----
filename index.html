@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es-ES" prefix="og: https://ogp.me/ns#">
+<head>
+    <!-- Metadatos básicos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CV profesional de Pedro Ortiz Plaza - Administrativo y Programador de Sistemas">
+    <meta name="keywords" content="CV, programador, sistemas, administrativo, desarrollo web, Java, PHP">
+    <meta name="author" content="Pedro Ortiz Plaza">
+    
+    <!-- Preconexión para Font Awesome primero -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <!-- Cargar Font Awesome antes que otros estilos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Resto de metadatos -->
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="Spanish">
+    <meta name="distribution" content="global">
+    
+    <!-- Metadatos para Open Graph -->
+    <meta property="og:title" content="Pedro Ortiz Plaza - CV Profesional">
+    <meta property="og:description" content="CV profesional de Pedro Ortiz Plaza - Administrativo y Programador de Sistemas">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pedroprogramacion.github.io/Mi_Portfolio/">
+    <meta property="og:image" content="https://pedroprogramacion.github.io/MULTIMEDIA/IMG/favicon.ico">
+    <meta property="og:site_name" content="CV Pedro Ortiz Plaza">
+    <meta property="og:locale" content="es_ES">
+    
+    <!-- Metadatos para Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pedro Ortiz Plaza - CV Profesional">
+    <meta name="twitter:description" content="CV profesional de Pedro Ortiz Plaza - Administrativo y Programador de Sistemas">
+    <meta name="twitter:image" content="https://pedroprogramacion.github.io/MULTIMEDIA/IMG/favicon.ico">
+    <meta name="twitter:site" content="@PedroProgramacion">
+    <meta name="twitter:creator" content="@PedroProgramacion">
+    
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <title data-translate="page_title">Pedro Ortiz Plaza - CV Profesional</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./MULTIMEDIA/IMG/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="./MULTIMEDIA/IMG/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./MULTIMEDIA/IMG/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./MULTIMEDIA/IMG/favicon-16x16.png">
+    <link rel="manifest" href="./MULTIMEDIA/IMG/site.webmanifest">
+    <link rel="mask-icon" href="./MULTIMEDIA/IMG/safari-pinned-tab.svg" color="#5bbad5">
+    
+    <!-- Icono de la pagina -->
+    <link rel="icon" href="./MULTIMEDIA/IMGS/icono.jpg" type="image/x-icon">
+
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="./CSS/estiloscv.css">
+    
+    <!-- Estilos para banderas -->
+    <style>
+        .flag-icon {
+            display: inline-block;
+            width: 20px;
+            height: 15px;
+            background-size: cover;
+            margin-right: 8px;
+            vertical-align: middle;
+            border: 1px solid #ddd;
+        }
+        
+        /* Asegurar que los iconos sean visibles */
+        .fas, .fab, .far {
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+        }
+        
+        /* Estilos para el dropdown de idiomas */
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .language-dropbtn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px 15px;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .language-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .language-dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .language-dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .language-dropdown:hover .language-dropdown-content {
+            display: block;
+        }
+        
+        /* Modo oscuro */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .header {
+            background-color: #1e1e1e;
+        }
+        
+        body.dark-mode .section-card {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .navbar {
+            background-color: #1e1e1e;
+        }
+        
+        body.dark-mode .footer {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .language-dropdown-content {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .language-dropdown-content a {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .language-dropdown-content a:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón modo oscuro con ARIA label -->
+    <button id="toggle-dark-mode" class="dark-mode-toggle" aria-label="Alternar modo oscuro">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="profile-image-container">
+                <h1>POP</h1>
+            </div>
+            <div class="header-text">
+                <h1 data-translate="header_title">Pedro Ortiz Plaza</h1>
+                <h2 data-translate="header_subtitle">Administrativo & Programador de Sistemas</h2>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +34 678 021 476</p>
+                    <p><i class="fas fa-envelope"></i> ortizplazapedro5@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-translate="location">Castilla-La Mancha, España</span></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de navegación con mejor semántica -->
+    <nav class="navbar" role="navigation" aria-label="Menú principal">
+        <ul class="nav-links">
+            <li><a href="#sectorprofesional" class="nav-link"><i class="fas fa-briefcase" aria-hidden="true"></i> <span data-translate="menu_experience">Experiencia</span></a></li>
+            <li><a href="#formacionacademica" class="nav-link"><i class="fas fa-graduation-cap" aria-hidden="true"></i> <span data-translate="menu_education">Formación</span></a></li>
+            <li><a href="#habilidades" class="nav-link"><i class="fas fa-code" aria-hidden="true"></i> <span data-translate="menu_skills">Habilidades</span></a></li>
+            <li><a href="#otrosdatosinteres" class="nav-link"><i class="fas fa-info-circle" aria-hidden="true"></i> <span data-translate="menu_other">Otros datos</span></a></li>
+            
+            <!-- Dropdown de idiomas accesible -->
+            <li class="language-dropdown-container">
+                <div class="language-dropdown">
+                    <button class="language-dropbtn" aria-expanded="false" aria-haspopup="true" aria-label="Selector de idioma">
+                        <i class="fas fa-language" aria-hidden="true"></i> <span data-translate="menu_language">Idioma</span>
+                    </button>
+                    <ul class="language-dropdown-content" role="menu">
+                        <li><a href="#" data-lang="es" role="menuitem"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/es.png')"></span> Español</a></li>
+                        <li><a href="#" data-lang="en" role="menuitem"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/gb.png')"></span> Ingles</a></li>
+                        <li><a href="#" data-lang="fr" role="menuitem"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/fr.png')"></span> Frances</a></li>
+                        <li><a href="#" data-lang="de" role="menuitem"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/de.png')"></span> Aleman</a></li>
+                        <li><a href="#" data-lang="it" role="menuitem"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/it.png')"></span> Italiano</a></li>
+                        <li><a href="#" data-lang="pt" role="menuitem"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/pt.png')"></span> Português</a></li>
+                        <li><a href="#" data-lang="ru" role="menuitem"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/ru.png')"></span> Ruso</a></li>
+                        <li><a href="#" data-lang="zh" role="menuitem"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/cn.png')"></span> Chino</a></li>
+                        <li><a href="#" data-lang="ja" role="menuitem"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/jp.png')"></span> Japones</a></li>
+                        <li><a href="#" data-lang="ar" role="menuitem"><span class="flag-icon" style="background-image: url('https://flagcdn.com/w20/sa.png')"></span> Arabia Saudita</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="nav-actions">
+            <a href="./DOCS/CurrículumVitae-Pedro.pdf" class="download-cv-btn" id="download-cv" download="CV_PedroOrtizPlaza.pdf">
+                <i class="fas fa-download"></i> 
+                <span data-translate="download_cv">Descargar CV</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Contenido principal con estructura mejorada -->
+    <main class="main-content" role="main">
+        <!-- Columna izquierda -->
+        <div class="left-column">
+            <!-- Experiencia Profesional con mejor estructura -->
+            <section id="sectorprofesional" class="section-card" aria-labelledby="experience-heading">
+                <h2 id="experience-heading"><i class="fas fa-briefcase section-icon" aria-hidden="true"></i> <span data-translate="experience_title">Experiencia Profesional</span></h2>
+                <div class="timeline">
+
+                    <!-- Experiencia 1 -->
+                    <article class="timeline-item">
+                        <div class="timeline-date">2025</div>
+                        <div class="timeline-content">
+                            <h3 data-translate="internship_title">Prácticas de Formación Profesional</h3>
+                            <p data-translate="internship_description">Programación de Sistemas - CEAT. Prácticas que constan de 120 horas.</p>
+                            <ul>
+                                <li data-translate="internship_li1">Realicé la optimización SEO de páginas web clave, incluyendo la página de contacto, para mejorar la visibilidad online.</li>
+                                <li data-translate="internship_li2">Gestioné y actualicé bases de datos en Excel, asegurando la correcta clasificación y filtrado de la información de cursos y acceso para trabajadores.</li>
+                                <li data-translate="internship_li3">Implementé cambios y actualizaciones en plataformas digitales, incluyendo la colocación de archivos en "Código Ágora" y la actualización de certificados de profesionalidad del sitio.</li>
+                                <li data-translate="internship_li4">Colaboré en la resolución de incidencias relacionadas con la documentación y la localización de archivos en sistemas internos.</li>
+                                <li data-translate="internship_li5">Apoyé en la preparación y organización de datos para cursos de formación, optimizando la gestión de información.</li>
+                                <li data-translate="internship_li6">Participé activamente en la comunicación interdepartamental para coordinar tareas y asegurar la fluidez de los proyectos digitales.</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <!-- Experiencia 2 -->
+                    <article class="timeline-item">
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3 data-translate="internship_title">Prácticas de Formación Profesional</h3>
+                            <p data-translate="admin_degree">Alcomasa - 520 horas de practicas</p>
+                            <ul>
+                                <li data-translate="admin_li1">Gestioné el servicio de atención y dirección de descarga de transportistas en una empresa dedicada a la destilación de vinos.</li>
+                                <li data-translate="admin_li2">Interactué con proveedores utilizando un programa propio de la empresa para la gestión de las operaciones.</li>
+                                <li data-translate="admin_li3">Mantuve un control diario de entradas en un archivo Excel, registrando la cantidad de litros recibidos, datos de la empresa proveedora, información del transportista y el total acumulado de lunes a viernes.</li>
+                                <li data-translate="admin_li4">Realicé la impresión de los registros de Excel y la posterior transcripción de litros, proveedores y matrículas de transportistas a una hoja de gestión de almacén donde se detallaban tanto los litros que entraban como los que salían.</li>
+                                <li data-translate="admin_li5">Colaboré en el proceso de etiquetado de vinos, donde se extraían muestras de determinados almacenes para su posterior análisis. No realicé las pruebas de laboratorio, pero participé en la fase de preparación y logística de las muestras.</li>
+                                <li data-translate="admin_li6">Apoyé en la logística y preparación de muestras de vino para pruebas de calidad, garantizando su correcta identificación y trazabilidad.</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <!-- Experiencia 3 -->
+                    <article class="timeline-item">
+                        <div class="timeline-date">2020</div>
+                        <div class="timeline-content">
+                            <h3 data-translate="internship_title">Prácticas de Formación Profesional</h3>
+                            <p data-translate="basic_admin">Practicas Virtuales - 520 horas de practicas</p>
+                            <ul>
+                                <li data-translate="basic_admin_li1">Desarrollé y presenté una detallada presentación empresarial para clientes potenciales, abarcando desde la identificación de la empresa hasta estrategias de mejora y nuevas tecnologías.</li>
+                                <li data-translate="basic_admin_li2">Gestioné tareas administrativas esenciales, incluyendo la elaboración del calendario laboral anual con festivos nacionales y locales, y la creación de plantillas en Excel para el registro de facturas emitidas y recibidas.</li>
+                                <li data-translate="basic_admin_li3">Organicé el archivo de facturas de clientes de 2019, aplicando un criterio numérico de clasificación.</li>
+                                <li data-translate="basic_admin_li4">Redacté comunicaciones internas (memorándums) y externas (cartas de reclamación por material en mal estado), demostrando habilidades de comunicación profesional.</li>
+                                <li data-translate="basic_admin_li5">Contribuí al establecimiento de normas de protocolo empresarial, tanto sociales como laborales, y desarrollé un decálogo de Prevención de Riesgos Laborales adaptado a la situación del COVID-19.</li>
+                                <li data-translate="basic_admin_li6">Manejé la recepción de llamadas de clientes, tomando nota de los mensajes y coordinando el seguimiento con la dirección.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Formación Académica con mejor estructura -->
+            <section id="formacionacademica" class="section-card" aria-labelledby="education-heading">
+                <h2 id="education-heading"><i class="fas fa-graduation-cap section-icon" aria-hidden="true"></i> <span data-translate="menu_education">Formación Académica</span></h2>
+                <div class="timeline">
+                    
+                    <!-- Formación 1 -->
+                    <article class="timeline-item">
+                        <div class="timeline-date">2025</div>
+                        <div class="timeline-content">
+                            <h3 data-translate="systems_programming_degree">Título Formación de grado 3 en Programación de Sistemas Informáticos</h3>
+                            <p data-translate="equivalent_degree">Programación de Sistemas, equivalente a un grado superior</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Formación 2 -->
+                    <article class="timeline-item">
+                        <div class="timeline-date">2025</div>
+                        <div class="timeline-content">
+                            <h3 data-translate="ceat_course">CEAT - Programación de Sistemas Informáticos</h3>
+                            <ul class="education-list">
+                                <li data-translate="firebase_deploy">Despliegue con Firebase y CPanel</li>
+                                <li data-translate="springboot_use">Uso de Spring Boot y sus módulos (Thymeleaf, Security y base de datos)</li>
+                                <li data-translate="wordpress_training">Uso y formación en WordPress con Elementor</li>
+                                <li data-translate="intellij_use">Uso de IntelliJ IDEA y Java</li>
+                                <li data-translate="phpmyadmin_use">Uso de BDD con PHP MyAdmin y XAMPP</li>
+                                <li data-translate="vscode_use">Uso de Visual Studio Code (HTML, CSS y JavaScript)</li>
+                                <li data-translate="bootstrap_use">Uso de Bootstrap</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <!-- Formación 3 -->
+                    <article class="timeline-item">
+                        <div class="timeline-date">2023-2024</div>
+                        <div class="timeline-content">
+                            <h3>IES Juan Bosco</h3>
+                            <p data-translate="daw_course">Curso de grado superior de (DAW) Desarrollo de Aplicaciones Web</p>
+                            <ul class="education-list">
+                                <li data-translate="netbeans_java">Apache NetBeans y Java</li>
+                                <li data-translate="windows_software">Uso de software de Windows</li>
+                                <li data-translate="linux_software">Uso de software de diferentes distribuciones de Linux</li>
+                                <li data-translate="command_line">Uso de línea de comandos en Windows y diferentes distribuciones de Linux</li>
+                                <li data-translate="virtualbox_use">Uso de máquinas virtuales con VirtualBox</li>
+                                <li data-translate="vscode_php">Uso de Visual Studio Code (HTML, CSS y PHP)</li>
+                                <li data-translate="mysql_use">Uso de MySQL Server</li>
+                                <li data-translate="hardware_knowledge">Conocimientos sobre el hardware interno de los equipos</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <!-- Formación 4 -->
+                    <article class="timeline-item">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content">
+                            <h3 data-translate="admin_degree">Título Ciclo Formativo Grado Medio Administrativo</h3>
+                        </div>
+                    </article>
+                    
+                    <!-- Formación 5 -->
+                    <article class="timeline-item">
+                        <div class="timeline-date">2021-2023</div>
+                        <div class="timeline-content">
+                            <h3>IES García Pavón</h3>
+                            <p data-translate="typing_course">Curso de grado Medio de mecanografía y programas informáticos</p>
+                            <ul class="education-list">
+                                <li data-translate="windows">Windows</li>
+                                <li data-translate="sol_software">Software del SOL</li>
+                                <li data-translate="office_package">Paquete Office</li>
+                                <li data-translate="typing">Mecanografía</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <!-- Formación 6 -->
+                    <article class="timeline-item">
+                        <div class="timeline-date">2021</div>
+                        <div class="timeline-content">
+                            <h3 data-translate="basic_degree">Título Ciclo Formativo Básico / ESO</h3>
+                            <p data-translate="administration">Administración</p>
+                            <p data-translate="secondary_education">Educación Secundaria Obligatoria</p>
+                        </div>
+                    </article>
+                    
+                    <!-- Formación 7 -->
+                    <article class="timeline-item">
+                        <div class="timeline-date">2019-2021</div>
+                        <div class="timeline-content">
+                            <h3 data-translate="basic_admin_course">Formación Profesional Básica de Administración</h3>
+                            <ul class="education-list">
+                                <li data-translate="windows">Windows</li>
+                                <li data-translate="office_package">Paquete Office</li>
+                                <li data-translate="typing">Mecanografía</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <!-- Formación 8 -->
+                    <article class="timeline-item">
+                        <div class="timeline-date">2016-2021</div>
+                        <div class="timeline-content">
+                            <h3 data-translate="secondary_education">Educación Secundaria Obligatoria (ESO)</h3>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <!-- Columna derecha -->
+        <div class="right-column">
+            <!-- Habilidades con mejor estructura -->
+            <section id="habilidades" class="section-card" aria-labelledby="skills-heading">
+                <h2 id="skills-heading"><i class="fas fa-code section-icon" aria-hidden="true"></i> <span data-translate="menu_skills">Habilidades</span></h2>
+                <div class="skills-container">
+                    <!-- Habilidades Técnicas -->
+                    <article class="skill-category">
+                        <h3 data-translate="technical_skills">Técnicas</h3>
+                        <ul class="skills-list">
+                            <li>
+                                <span class="skill-name" data-translate="windows_systems">Sistemas Windows</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 90%;"></div>
+                                </div>
+                                <span class="sr-only">90% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="paqute_office">Paquete office</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 70%;"></div>
+                                </div>
+                                <span class="sr-only">70% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="software_sol">Software del Sol</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 50%;"></div>
+                                </div>
+                                <span class="sr-only">50% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="linux_software">Software Linux</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 65%;"></div>
+                                </div>
+                                <span class="sr-only">65% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="bios_config">Configuración BIOS</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 70%;"></div>
+                                </div>
+                                <span class="sr-only">70% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="java">Java</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 50%;"></div>
+                                </div>
+                                <span class="sr-only">50% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="html">HTML</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 90%;"></div>
+                                </div>
+                                <span class="sr-only">90% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="css">CSS</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 70%;"></div>
+                                </div>
+                                <span class="sr-only">70% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="js">JS</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 50%;"></div>
+                                </div>
+                                <span class="sr-only">50% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="php">PHP </span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 10%;"></div>
+                                </div>
+                                <span class="sr-only">10% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="bdd">BDD </span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 50%;"></div>
+                                </div>
+                                <span class="sr-only">50% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="despliegue_firebase">Despliegue Firebase</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 30%;"></div>
+                                </div>
+                                <span class="sr-only">30% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="springboot_use">Springboot</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 20%;"></div>
+                                </div>
+                                <span class="sr-only">20% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="vbox">VirtualBox</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 70%;"></div>
+                                </div>
+                                <span class="sr-only">70% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="componentes_hardware">Componentes Hardware</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 70%;"></div>
+                                </div>
+                                <span class="sr-only">70% de dominio</span>
+                            </li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Habilidades Personales -->
+                    <article class="skill-category">
+                        <h3 data-translate="personal_skills">Personales</h3>
+                        <ul class="skills-list personal-skills">
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="responsible">Responsable y puntual</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="organized">Organizado</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="resolute">Resolutivo</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="teamwork">Capacidad para trabajar en equipo</span></li>
+                            <li><i class="fas fa-check" aria-hidden="true"></i> <span data-translate="good_presence">Buena presencia y trato</span></li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Idiomas -->
+                    <article class="skill-category">
+                        <h3 data-translate="menu_language">Idiomas</h3>
+                        <ul class="skills-list">
+                            <li>
+                                <span class="skill-name" data-translate="spanish_native">Español (Nativo)</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 100%;"></div>
+                                </div>
+                                <span class="sr-only">100% de dominio</span>
+                            </li>
+                            <li>
+                                <span class="skill-name" data-translate="english_b1">Inglés (B1)</span>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                    <div class="skill-level" style="width: 30%;"></div>
+                                </div>
+                                <span class="sr-only">30% de dominio</span>
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Otros Datos con mejor estructura -->
+            <section id="otrosdatosinteres" class="section-card" aria-labelledby="other-info-heading">
+                <h2 id="other-info-heading"><i class="fas fa-info-circle section-icon" aria-hidden="true"></i> <span data-translate="menu_other">Otros Datos de Interés</span></h2>
+                <div class="other-info">
+                    <article class="info-item">
+                        <i class="fas fa-wheelchair" aria-hidden="true"></i>
+                        <p data-translate="disability">Discapacidad reconocida del 40%</p>
+                    </article>
+                    <article class="info-item">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        <p data-translate="politics_interest">Interés en política nacional e internacional</p>
+                    </article>
+                    <article class="info-item">
+                        <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                        <p>
+                            <span data-translate="portfolio_available">Portfolio disponible en</span>
+                            <a href="https://pedroprogramacion.github.io/Mi_Portfolio/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </p>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer con mejor estructura -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <!-- Redes Sociales -->
+            <section class="footer-section" id="redes-sociales" aria-labelledby="social-heading">
+                <h3 id="social-heading" data-translate="connect_with_me">Conecta conmigo</h3>
+                <div class="social-icons">
+                    <a href="https://github.com/PedroProgramacion" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <span class="sr-only">GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                    <a href="https://www.infojobs.net/candidate/my-infojobs.xhtml?dgv=7202779601101142697" target="_blank" rel="noopener noreferrer" aria-label="InfoJobs">
+                        <i class="fas fa-briefcase" aria-hidden="true"></i>
+                        <span class="sr-only">InfoJobs</span>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61573096651989" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        <span class="sr-only">Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/pedro_profesional?igsh=bXdheWNzZnUydXNk" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                        <span class="sr-only">Instagram</span>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Enlaces rápidos -->
+            <section class="footer-section" aria-labelledby="quick-links-heading">
+                <h3 id="quick-links-heading" data-translate="quick_links">Enlaces rápidos</h3>
+                <ul>
+                    <li><a href="https://pedroprogramacion.github.io/Mi_Portfolio/" target="_blank" rel="noopener noreferrer" data-translate="my_portfolio">Mi Portfolio</a></li>
+                    <li><a href="#sectorprofesional" data-translate="menu_experience">Experiencia</a></li>
+                    <li><a href="#formacionacademica" data-translate="menu_education">Formación</a></li>
+                </ul>
+            </section>
+            
+            <!-- Contacto -->
+            <section class="footer-section" aria-labelledby="contact-heading">
+                <h3 id="contact-heading" data-translate="contact">Contacto</h3>
+                <address>
+                    <ul>
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:ortizplazapedro5@gmail.com">ortizplazapedro5@gmail.com</a></li>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+34678021476">+34 678 021 476</a></li>
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <span data-translate="location">Castilla-La Mancha, España</span></li>
+                    </ul>
+                </address>
+            </section>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Pedro Ortiz Plaza. <span data-translate="all_rights">Todos los derechos reservados.</span></p>
+        </div>
+    </footer>
+
+    <!-- Scripts con defer para mejor rendimiento -->
+    <script src="./JS/cv.js" defer></script>
+    
+    <!-- Script para el año actual -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

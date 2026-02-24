@@ -1,0 +1,1527 @@
+/*   ================== VARIABLES COMBINADAS ================== 
+    Esta sección define todas las variables CSS personalizadas (custom properties) que se usarán en el documento.
+    Las variables se definen en el selector :root para que estén disponibles globalmente.
+*/
+
+:root {
+    /* 
+        Colores principales 
+        Define una paleta de colores coherente para la interfaz usando   variables CSS.
+        Cada variable tiene un comentario descriptivo del color que representa.
+    */  
+    --primary-color: #2563eb; /* Azul profesional - Color principal de la interfaz */
+    --primary-dark: #1d4ed8; /* Azul oscuro - Variante oscura del color principal */
+    --secondary-color: #10b981; /* Verde esmeralda - Color secundario/acompañante */
+    --accent-color: #e74c3c; /* Rojo vibrante - Color de acento para elementos destacados */
+    --light-color: #f8fafc; /* Blanco muy claro - Para fondos claros y textos oscuros */
+    --dark-color: #1e293b; /* Azul muy oscuro - Para textos y elementos oscuros */
+    --text-color: #334155; /* Gris azulado oscuro - Color principal para texto */
+    --text-light: #94a3b8; /* Gris azulado claro - Texto secundario/deshabilitado */
+    --bg-color: #ffffff; /* Fondo blanco - Color de fondo principal */
+    --card-bg: #f1f5f9; /* Fondo de tarjetas - Color de fondo para componentes tipo card */
+    --footer-bg: #1e293b; /* Fondo de footer - Color de fondo para el pie de página */
+    --footer-text: #e2e8f0; /* Texto de footer - Color de texto para el pie de página */
+    
+    /* 
+        Efectos 
+        Variables para sombras, transiciones y bordes redondeados para mantener consistencia visual
+    */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra pequeña para elevación sutil */
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra media para elementos intermedios */
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra grande para elementos destacados */
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.2); /* Sombra extra grande para efectos dramáticos */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transición suave para animaciones */
+    --border-radius: 12px; /* Radio de borde estándar */
+    --border-radius-sm: 6px; /* Radio de borde pequeño para elementos más compactos */
+    
+    /* 
+        Gradientes 
+        Combinaciones de colores en gradiente para fondos especiales
+    */
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); /* Gradiente con colores principales */
+    --gradient-accent: linear-gradient(135deg, var(--accent-color), #c0392b); /* Gradiente con colores de acento */
+    --gradient-header: linear-gradient(135deg, var(--primary-color), var(--dark-color)); /* Gradiente especial para el encabezado */
+}
+
+/* 
+    Modo oscuro 
+    Sobrescribe las variables de color cuando el atributo data-theme es "dark".
+    Esto permite un cambio completo de tema modificando solo una clase en el HTML.
+*/
+[data-theme="dark"] {
+    --primary-color: #3b82f6; /* Azul más claro - Mejor legibilidad en fondos oscuros */
+    --secondary-color: #10b981; /* Mantiene el verde - Consistencia con el tema claro */
+    --accent-color: #ef4444; /* Rojo más vibrante - Mayor contraste en oscuro */
+    --light-color: #1e293b; /* Azul oscuro - Ahora es el fondo claro en modo oscuro */
+    --dark-color: #f8fafc; /* Blanco - Textos claros sobre fondos oscuros */
+    --text-color: #e2e8f0; /* Blanco - Texto principal en modo oscuro */
+    --text-light: #94a3b8; /* Gris claro - Texto secundario */
+    --bg-color: #0f172a; /* Azul muy oscuro - Fondo principal en modo oscuro */
+    --card-bg: #1e293b; /* Azul oscuro - Fondo de tarjetas en modo oscuro */
+    --footer-bg: #0f172a; /* Azul muy oscuro - Igual que el fondo para integración */
+    --footer-text: #e2e8f0; /* Blanco - Texto del footer en modo oscuro */
+    
+    /* Sombras más pronunciadas en modo oscuro para mejor contraste */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* 
+    ================== RESET Y ESTILOS BASE ================== 
+    Estilos básicos que resetean valores por defecto del navegador y establecen
+    propiedades fundamentales para toda la aplicación.
+*/
+
+/* Reset universal - Elimina márgenes y padding por defecto y usa border-box para el modelo de caja */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos base para el elemento html */
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave al hacer scroll */
+    font-size: 16px; /* Tamaño base de fuente para cálculos rem */
+}
+
+/* Estilos base para el cuerpo del documento */
+body {
+    font-family: 'Poppins', 'Roboto', sans-serif; /* Fuente principal con fallbacks */
+    line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
+    color: var(--text-color); /* Color de texto usando variable */
+    background-color: var(--bg-color); /* Color de fondo usando variable */
+    transition: var(--transition); /* Transición suave para cambios de tema */
+}
+
+/* Estilos para encabezados (h1-h6) */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600; /* Grosor de fuente semibold */
+    color: var(--dark-color); /* Color usando variable */
+    margin-bottom: 0.75rem; /* Espaciado inferior consistente */
+}
+
+/* Estilos base para enlaces */
+a {
+    text-decoration: none; /* Sin subrayado por defecto */
+    color: var(--primary-color); /* Color usando variable */
+    transition: var(--transition); /* Transición suave para hover */
+}
+
+/* Efecto hover para enlaces */
+a:hover {
+    color: var(--accent-color); /* Cambia a color de acento al pasar el mouse */
+}
+
+/* Estilos para listas no ordenadas */
+ul {
+    list-style: none; /* Elimina viñetas por defecto */
+}
+
+/* Estilos para imágenes responsivas */
+img {
+    max-width: 100%; /* No excede el ancho del contenedor */
+    height: auto; /* Mantiene proporción original */
+    display: block; /* Elimina espacio inferior por defecto */
+}
+
+/* 
+    ================== BOTÓN MODO OSCURO MEJORADO ================== 
+    Estilos para el botón que alterna entre modo claro y oscuro.
+    Tiene efectos visuales avanzados y cambia de icono según el tema.
+*/
+
+.dark-mode-toggle {
+    position: absolute; /* Posicionamiento absoluto respecto al padre relativo */
+    top: 20px; /* Distancia desde la parte superior */
+    right: 20px; /* Distancia desde la derecha */
+    z-index: 1000; /* Alto z-index para asegurar que esté por encima */
+    background: rgba(0, 0, 0, 0.3); /* Fondo semitransparente */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque de fondo */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+    width: 50px; /* Ancho fijo */
+    height: 50px; /* Alto fijo (crea un círculo perfecto con border-radius) */
+    border-radius: 50%; /* Forma circular */
+    cursor: pointer; /* Cambia el cursor a pointer */
+    display: flex; /* Flexbox para centrar contenido */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
+    transition: var(--transition); /* Transición suave para hover */
+    color: white; /* Color del icono */
+}
+
+/* Efecto hover para el botón de modo oscuro */
+.dark-mode-toggle:hover {
+    transform: scale(1.1); /* Ligero aumento de tamaño */
+    background: rgba(0, 0, 0, 0.5); /* Fondo más oscuro */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+    border-color: rgba(255, 255, 255, 0.3); /* Borde más visible */
+}
+
+/* Estilos para el icono de sol (visible en modo oscuro) */
+.dark-mode-toggle .fa-sun {
+    display: none; /* Oculto por defecto */
+    color: #fbbf24; /* Color amarillo para el sol */
+}
+
+/* Estilos para el icono de luna (visible en modo claro) */
+.dark-mode-toggle .fa-moon {
+    color: #e2e8f0; /* Color blanco para la luna */
+}
+
+/* Cambia los iconos cuando el tema es oscuro */
+[data-theme="dark"] .dark-mode-toggle .fa-moon {
+    display: none; /* Oculta la luna en modo oscuro */
+}
+
+[data-theme="dark"] .dark-mode-toggle .fa-sun {
+    display: block; /* Muestra el sol en modo oscuro */
+}
+
+/* 
+    ================== HEADER MEJORADO ================== 
+    Estilos para la sección de encabezado, que incluye imagen de perfil,
+    información de contacto y elementos decorativos.
+*/
+
+.header {
+    background: var(--gradient-header); /* Fondo con gradiente definido en variables */
+    color: white; /* Texto blanco para contraste */
+    padding: 3rem 1rem; /* Espaciado interno generoso */
+    text-align: center; /* Centrado de texto */
+    position: relative; /* Para posicionar elementos hijos absolutos */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+    box-shadow: var(--shadow-md); /* Sombra para profundidad */
+}
+
+/* Pseudoelemento decorativo en la parte inferior del header */
+.header::after {
+    content: ''; /* Necesario para que se muestre */
+    position: absolute; /* Posicionamiento absoluto respecto al header */
+    bottom: 0; /* Alineado a la parte inferior */
+    left: 0; /* Desde el borde izquierdo */
+    right: 0; /* Hasta el borde derecho */
+    height: 5px; /* Altura del elemento */
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color)); /* Gradiente horizontal */
+}
+
+/* Contenedor principal del contenido del header */
+.header-content {
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    margin: 0 auto; /* Centrado horizontal */
+    display: flex; /* Flexbox para disposición flexible */
+    flex-direction: column; /* Elementos en columna */
+    align-items: center; /* Centrado horizontal de elementos */
+    gap: 2rem; /* Espacio entre elementos hijos */
+    position: relative; /* Para posicionar elementos hijos absolutos */
+}
+
+/* Contenedor de la imagen de perfil */
+.profile-image-container {
+    width: 160px; /* Ancho fijo */
+    height: 160px; /* Alto fijo (igual que ancho para ser cuadrado) */
+    border-radius: 50%; /* Hace el contenedor circular */
+    border: 5px solid rgba(255, 255, 255, 0.2); /* Borde sutil semitransparente */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+    box-shadow: var(--shadow-lg); /* Sombra pronunciada */
+    transition: var(--transition); /* Transición suave para hover */
+    display: flex; /* Flexbox para centrar contenido */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+}
+
+/* Efecto hover para el contenedor de imagen */
+.profile-image-container:hover {
+    transform: scale(1.05); /* Ligero aumento de tamaño */
+    box-shadow: var(--shadow-xl); /* Sombra más pronunciada */
+}
+
+/* Estilos para el texto alternativo si no hay imagen */
+.profile-image-container h1 {
+    font-size: 4rem; /* Tamaño muy grande para iniciales */
+    color: white; /* Texto blanco */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra de texto para legibilidad */
+    margin: 0; /* Sin margen */
+    font-weight: 700; /* Negrita */
+    letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+/* Contenedor de texto del header */
+.header-text h1 {
+    font-size: 2.2rem; /* Tamaño grande para el nombre */
+    margin-bottom: 0.5rem; /* Espaciado inferior reducido */
+    color: white; /* Texto blanco */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil de texto */
+}
+
+.header-text h2 {
+    font-size: 1.3rem; /* Tamaño mediano para el título */
+    font-weight: 400; /* Peso normal (no negrita) */
+    margin-bottom: 1.5rem; /* Espaciado inferior generoso */
+    color: rgba(255, 255, 255, 0.9); /* Blanco con ligera transparencia */
+}
+
+/* Contenedor de información de contacto */
+.contact-info {
+    display: flex; /* Flexbox para disposición en línea */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    justify-content: center; /* Centrado horizontal */
+    gap: 1.5rem; /* Espacio entre elementos */
+}
+
+/* Estilos para cada elemento de contacto */
+.contact-info p {
+    display: flex; /* Flexbox para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 0.5rem; /* Espacio entre icono y texto */
+    font-size: 1rem; /* Tamaño estándar de fuente */
+    background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    padding: 0.7rem 1.2rem; /* Espaciado interno */
+    border-radius: 50px; /* Bordes completamente redondeados */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque de fondo */
+    transition: var(--transition); /* Transición suave para hover */
+}
+
+/* Efecto hover para elementos de contacto */
+.contact-info p:hover {
+    background: rgba(255, 255, 255, 0.2); /* Fondo más opaco */
+    transform: translateY(-3px); /* Efecto de levitación */
+}
+
+/* Estilos para iconos de contacto */
+.contact-info i {
+    font-size: 1.1rem; /* Tamaño ligeramente mayor que el texto */
+}
+
+/* 
+    ================== BARRA DE NAVEGACIÓN MEJORADA ================== 
+    Estilos para la barra de navegación principal, que incluye enlaces
+    y elementos interactivos como el dropdown de idiomas.
+*/
+
+.navbar {
+    background-color: var(--card-bg); /* Color de fondo usando variable */
+    padding: 1rem; /* Espaciado interno */
+    box-shadow: var(--shadow-sm); /* Sombra sutil */
+    position: static; /* Posicionamiento estático (no sticky en este caso) */
+    top: 0; /* Distancia desde la parte superior si fuera sticky */
+    z-index: 100; /* Z-index alto para estar sobre otros elementos */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Borde sutil inferior */
+}
+
+/* Estilos específicos para la navbar en modo oscuro */
+[data-theme="dark"] .navbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Borde más claro en modo oscuro */
+}
+
+/* Contenedor principal de navegación */
+.navbar-container {
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    margin: 0 auto; /* Centrado horizontal */
+    display: flex; /* Flexbox para disposición flexible */
+    justify-content: space-between; /* Espacio entre elementos */
+    align-items: center; /* Centrado vertical */
+    flex-wrap: wrap; /* Permite envolver elementos en pantallas pequeñas */
+    gap: 1rem; /* Espacio entre elementos */
+}
+
+/* Enlaces de navegación */
+.nav-links {
+    display: flex; /* Flexbox para disposición en línea */
+    justify-content: center; /* Centrado horizontal */
+    flex-wrap: wrap; /* Permite envolver elementos */
+    gap: 1.5rem; /* Espacio entre elementos */
+    flex: 1; /* Ocupa todo el espacio disponible */
+}
+
+/* Estilos para cada elemento de la lista de navegación */
+.nav-links li a {
+    display: flex; /* Flexbox para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 0.5rem; /* Espacio entre icono y texto */
+    font-weight: 500; /* Peso de fuente medio */
+    color: var(--text-color); /* Color de texto usando variable */
+    padding: 0.7rem 1.2rem; /* Espaciado interno */
+    border-radius: 50px; /* Bordes completamente redondeados */
+    transition: var(--transition); /* Transición suave para hover */
+    position: relative; /* Para posicionar pseudoelementos */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+/* Pseudoelemento para el efecto de subrayado animado */
+.nav-links li a::before {
+    content: ''; /* Necesario para que se muestre */
+    position: absolute; /* Posicionamiento absoluto respecto al enlace */
+    bottom: 0; /* Alineado a la parte inferior */
+    left: 50%; /* Comienza en el centro */
+    transform: translateX(-50%); /* Centrado preciso */
+    width: 0; /* Inicialmente sin anchura */
+    height: 2px; /* Altura del subrayado */
+    background: var(--accent-color); /* Color de acento */
+    transition: var(--transition); /* Transición suave para animación */
+}
+
+/* Efecto hover para enlaces de navegación */
+.nav-links li a:hover {
+    color: white; /* Texto blanco */
+    background: var(--primary-color); /* Fondo azul */
+    transform: translateY(-3px); /* Efecto de levitación */
+    box-shadow: var(--shadow-sm); /* Sombra sutil */
+}
+
+/* Animación del subrayado al hacer hover */
+.nav-links li a:hover::before {
+    width: 60%; /* Aumenta el ancho al 60% del elemento */
+}
+
+/* Estilos para iconos en enlaces de navegación */
+.nav-links li a i {
+    font-size: 1rem; /* Tamaño estándar */
+}
+
+/* Sección de acciones (dropdown + botón) */
+.nav-actions {
+    display: flex; /* Flexbox para disposición en línea */
+    align-items: center; /* Centrado vertical */
+    gap: 1rem; /* Espacio entre elementos */
+    flex-shrink: 0; /* Evita que se reduzca de tamaño */
+}
+
+/* 
+    ================== DROPDOWN DE IDIOMAS MEJORADO ================== 
+    Estilos para el menú desplegable de selección de idioma,
+    con efectos de hover y transiciones suaves.
+*/
+
+.language-dropdown {
+    position: relative; /* Para posicionar el contenido desplegable */
+    display: inline-block; /* Display inline pero con dimensiones */
+}
+
+/* Estilos para el botón que abre el dropdown */
+.language-dropbtn {
+    background-color: transparent; /* Fondo transparente */
+    color: var(--text-color); /* Color de texto usando variable */
+    padding: 0.7rem 1.2rem; /* Espaciado interno */
+    font-size: 0.95rem; /* Tamaño de fuente ligeramente reducido */
+    border: none; /* Sin borde */
+    border-radius: 50px; /* Bordes completamente redondeados */
+    cursor: pointer; /* Cursor pointer para indicar interactividad */
+    display: flex; /* Flexbox para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 0.5rem; /* Espacio entre icono y texto */
+    transition: var(--transition); /* Transición suave para hover */
+    font-weight: 500; /* Peso de fuente medio */
+    white-space: nowrap; /* Evita que el texto se divida */
+    position: relative; /* Para posicionar pseudoelementos */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+
+/* Flecha del dropdown creada con pseudoelementos */
+.language-dropbtn::after {
+    content: ''; /* Necesario para que se muestre */
+    margin-left: 0.3rem; /* Espacio a la izquierda */
+    border: 4px solid transparent; /* Borde transparente */
+    border-top-color: var(--text-color); /* Solo el borde superior visible */
+    transition: var(--transition); /* Transición suave para hover */
+}
+
+/* Efecto hover igual que los items del nav */
+.language-dropbtn:hover {
+    color: white; /* Texto blanco */
+    background: var(--primary-color); /* Fondo azul */
+    transform: translateY(-3px); /* Efecto de levitación */
+    box-shadow: var(--shadow-sm); /* Sombra sutil */
+}
+
+/* Cambio de color de la flecha al hacer hover */
+.language-dropbtn:hover::after {
+    border-top-color: white; /* Flecha blanca en hover */
+}
+
+/* Pseudoelemento para el efecto de subrayado animado */
+.language-dropbtn::before {
+    content: ''; /* Necesario para que se muestre */
+    position: absolute; /* Posicionamiento absoluto respecto al botón */
+    bottom: 0; /* Alineado a la parte inferior */
+    left: 50%; /* Comienza en el centro */
+    transform: translateX(-50%); /* Centrado preciso */
+    width: 0; /* Inicialmente sin anchura */
+    height: 2px; /* Altura del subrayado */
+    background: var(--accent-color); /* Color de acento */
+    transition: var(--transition); /* Transición suave para animación */
+}
+
+/* Animación del subrayado al hacer hover */
+.language-dropbtn:hover::before {
+    width: 60%; /* Aumenta el ancho al 60% del elemento */
+}
+
+/* Contenido del dropdown (oculto por defecto) */
+.language-dropdown-content {
+    display: none; /* Oculto inicialmente */
+    position: absolute; /* Posicionamiento absoluto respecto al dropdown */
+    top: calc(100% + 5px); /* Debajo del botón con pequeño margen */
+    right: 0; /* Alineado a la derecha */
+    background-color: var(--card-bg); /* Color de fondo usando variable */
+    min-width: 200px; /* Ancho mínimo */
+    box-shadow: var(--shadow-lg); /* Sombra pronunciada */
+    border-radius: var(--border-radius-sm); /* Bordes redondeados pequeños */
+    z-index: 1000; /* Alto z-index para estar por encima */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+    opacity: 0; /* Inicialmente transparente para animación */
+    transform: translateY(-10px); /* Desplazado hacia arriba para animación */
+    transition: var(--transition); /* Transición suave para mostrar/ocultar */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Borde sutil */
+    max-height: 300px; /* Altura máxima con scroll si es necesario */
+    overflow-y: auto; /* Scroll vertical si el contenido es muy largo */
+}
+
+/* Estilos para cada opción del dropdown */
+.language-dropdown-content a {
+    color: var(--text-color); /* Color de texto usando variable */
+    padding: 0.8rem 1.2rem; /* Espaciado interno */
+    text-decoration: none; /* Sin subrayado */
+    display: flex; /* Flexbox para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 0.7rem; /* Espacio entre icono y texto */
+    font-size: 0.9rem; /* Tamaño de fuente reducido */
+    transition: var(--transition); /* Transición suave para hover */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Borde inferior sutil */
+    position: relative; /* Para posicionar pseudoelementos */
+}
+
+/* Elimina borde inferior del último elemento */
+.language-dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+/* Efecto hover para opciones del dropdown */
+.language-dropdown-content a:hover {
+    color: white; /* Texto blanco */
+    background: var(--primary-color); /* Fondo azul */
+    transform: translateY(-3px); /* Efecto de levitación */
+    box-shadow: var(--shadow-sm); /* Sombra sutil */
+}
+
+/* Mostrar dropdown al hacer hover o focus */
+.language-dropdown:hover .language-dropdown-content,
+.language-dropdown:focus-within .language-dropdown-content {
+    display: block; /* Muestra el dropdown */
+    opacity: 1; /* Completa opacidad */
+    transform: translateY(0); /* Vuelve a su posición normal */
+}
+
+/* Estilos específicos para modo oscuro */
+[data-theme="dark"] .language-dropbtn {
+    color: var(--text-light); /* Color de texto claro en modo oscuro */
+}
+
+[data-theme="dark"] .language-dropbtn::after {
+    border-top-color: var(--text-light); /* Flecha de color claro */
+}
+
+[data-theme="dark"] .language-dropbtn:hover {
+    background-color: var(--primary-color); /* Fondo azul al hacer hover */
+    color: white; /* Texto blanco */
+}
+
+[data-theme="dark"] .language-dropbtn:hover::after {
+    border-top-color: white; /* Flecha blanca al hacer hover */
+}
+
+[data-theme="dark"] .language-dropdown-content {
+    background-color: var(--dark-color); /* Fondo oscuro */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde claro sutil */
+}
+
+[data-theme="dark"] .language-dropdown-content a {
+    color: var(--text-light); /* Texto claro */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Borde claro sutil */
+}
+
+[data-theme="dark"] .language-dropdown-content a:hover {
+    background-color: var(--primary-color); /* Fondo azul al hacer hover */
+    color: white; /* Texto blanco */
+}
+
+/* 
+    ================== BOTÓN DESCARGAR CV MEJORADO ================== 
+    Estilos para el botón de descarga de CV, con efectos de hover animados y gradiente de color.
+*/
+
+.download-cv-btn {
+    background: var(--gradient-accent); /* Fondo con gradiente de acento */
+    color: white; /* Texto blanco */
+    padding: 0.8rem 1.8rem; /* Espaciado interno generoso */
+    border-radius: 50px; /* Bordes completamente redondeados */
+    font-weight: 500; /* Peso de fuente medio */
+    display: flex; /* Flexbox para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 0.7rem; /* Espacio entre icono y texto */
+    transition: var(--transition); /* Transición suave para hover */
+    box-shadow: var(--shadow-md); /* Sombra media */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
+    font-size: 0.9rem; /* Tamaño de fuente reducido */
+    position: relative; /* Para posicionar pseudoelementos */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor pointer para indicar interactividad */
+    margin: 2rem auto 0; /* Margen superior aumentado para separación */
+}
+
+/* Efecto hover para el botón */
+.download-cv-btn:hover {
+    background: linear-gradient(135deg, var(--primary-dark), var(--accent-color)); /* Cambia el gradiente */
+    transform: translateY(-3px); /* Efecto de levitación */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    color: white; /* Texto blanco */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+}
+
+/* Animación del icono de descarga al hacer hover */
+.download-cv-btn:hover i.fa-download {
+    animation: downloadFloat 1s ease-in-out infinite; /* Animación infinita */
+}
+
+/* Keyframes para la animación de flotar */
+@keyframes downloadFloat {
+    0%, 100% {
+        transform: translateY(0); /* Posición inicial y final */
+    }
+    50% {
+        transform: translateY(-3px); /* Movimiento hacia arriba */
+    }
+}
+
+/* Pseudoelemento para efecto de brillo al pasar el mouse */
+.download-cv-btn::after {
+    content: ''; /* Necesario para que se muestre */
+    position: absolute; /* Posicionamiento absoluto respecto al botón */
+    top: 0; /* Alineado a la parte superior */
+    left: -100%; /* Comienza fuera del botón a la izquierda */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); /* Gradiente de brillo */
+    transition: 0.5s; /* Transición más lenta para efecto suave */
+}
+
+/* Mueve el efecto de brillo al hacer hover */
+.download-cv-btn:hover::after {
+    left: 100%; /* Termina fuera del botón a la derecha */
+}
+
+/* Animación del icono de descarga */
+.download-cv-btn i.fa-download {
+    transition: var(--transition); /* Transición suave */
+    position: relative; /* Para posibles animaciones */
+}
+
+/* Animación de rebote al hacer hover */
+.download-cv-btn:hover i.fa-download {
+    animation: downloadBounce 0.5s ease infinite alternate; /* Animación infinita alternada */
+}
+
+/* Keyframes para la animación de rebote */
+@keyframes downloadBounce {
+    0% {
+        transform: translateY(0); /* Posición inicial */
+    }
+    100% {
+        transform: translateY(-5px); /* Movimiento hacia arriba */
+    }
+}
+
+/* 
+    ================== CONTENIDO PRINCIPAL ================== 
+    Estilos para el contenedor principal del contenido y sus componentes.
+    Define la estructura de grid y los estilos base para las secciones.
+*/
+
+/* Contenedor principal del contenido */
+.main-content {
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    margin: 3rem auto; /* Margen superior e inferior y centrado horizontal */
+    padding: 0 1.5rem; /* Espaciado interno lateral */
+    display: grid; /* Usa CSS Grid para el layout */
+    grid-template-columns: 1fr; /* Una sola columna por defecto */
+    gap: 2.5rem; /* Espacio entre elementos de grid */
+}
+
+/* Media query para pantallas grandes (992px o más) */
+@media (min-width: 992px) {
+    .main-content {
+        grid-template-columns: 2fr 1fr; /* Dos columnas: 2/3 para contenido principal y 1/3 para sidebar */
+    }
+}
+
+/* Estilos para las tarjetas de sección */
+.section-card {
+    background-color: var(--card-bg); /* Color de fondo usando variable */
+    border-radius: var(--border-radius); /* Bordes redondeados usando variable */
+    padding: 2rem; /* Espaciado interno generoso */
+    margin-bottom: 2rem; /* Margen inferior entre tarjetas */
+    box-shadow: var(--shadow-sm); /* Sombra sutil usando variable */
+    transition: var(--transition); /* Transición suave para efectos hover */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Borde sutil */
+    position: relative; /* Para posicionar elementos hijos absolutos */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+
+/* Estilos específicos para modo oscuro */
+[data-theme="dark"] .section-card {
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Borde más claro en modo oscuro */
+}
+
+/* Efecto hover para las tarjetas */
+.section-card:hover {
+    transform: translateY(-5px); /* Efecto de levitación */
+    box-shadow: var(--shadow-lg); /* Sombra más pronunciada */
+}
+
+/* Estilos para los títulos de sección */
+.section-card h2 {
+    font-size: 1.5rem; /* Tamaño de fuente */
+    margin-bottom: 1.5rem; /* Espaciado inferior */
+    padding-bottom: 0.75rem; /* Espaciado para el borde inferior */
+    border-bottom: 2px solid var(--primary-color); /* Borde inferior decorativo */
+    display: flex; /* Flexbox para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 0.7rem; /* Espacio entre icono y texto */
+}
+
+/* Estilos para los iconos de sección */
+.section-icon {
+    color: var(--primary-color); /* Color usando variable */
+    font-size: 1.3rem; /* Tamaño del icono */
+}
+
+/* 
+    ================== TIMELINE MEJORADA ================== 
+    Estilos para la línea de tiempo que muestra experiencia laboral o educación.
+    Incluye una línea vertical con puntos y efectos de hover.
+*/
+
+/* Contenedor principal de la línea de tiempo */
+.timeline {
+    position: relative; /* Para posicionar la línea vertical */
+    padding-left: 2rem; /* Espacio para la línea */
+}
+
+/* Línea vertical de la timeline */
+.timeline::before {
+    content: ''; /* Necesario para pseudoelementos */
+    position: absolute; /* Posicionamiento absoluto */
+    left: 10px; /* Distancia desde el borde izquierdo */
+    top: 0; /* Desde la parte superior */
+    bottom: 0; /* Hasta la parte inferior */
+    width: 3px; /* Grosor de la línea */
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color)); /* Gradiente vertical */
+    border-radius: 3px; /* Bordes redondeados */
+}
+
+/* Elemento individual de la timeline */
+.timeline-item {
+    position: relative; /* Para posicionar elementos hijos absolutos */
+    padding-bottom: 2rem; /* Espaciado entre elementos */
+}
+
+/* Fecha en la timeline */
+.timeline-date {
+    position: relative; /* Para posicionar el punto */
+    font-weight: 600; /* Texto semibold */
+    color: var(--primary-color); /* Color usando variable */
+    margin-bottom: 0.75rem; /* Espaciado inferior */
+    padding-left: 1.5rem; /* Espacio para el punto */
+    font-size: 0.95rem; /* Tamaño de fuente reducido */
+}
+
+/* Punto decorativo en la línea de tiempo */
+.timeline-date::before {
+    content: ''; /* Necesario para pseudoelementos */
+    position: absolute; /* Posicionamiento absoluto */
+    left: -2rem; /* Posición respecto al texto */
+    top: 50%; /* Centrado vertical */
+    transform: translateY(-50%); /* Centrado preciso */
+    width: 16px; /* Tamaño del punto */
+    height: 16px; /* Tamaño del punto */
+    border-radius: 50%; /* Forma circular */
+    background: var(--primary-color); /* Color del punto */
+    border: 3px solid var(--card-bg); /* Borde para efecto de anillo */
+    box-shadow: 0 0 0 2px var(--primary-color); /* Sombra exterior */
+    z-index: 1; /* Para estar sobre la línea */
+}
+
+/* Contenido de cada item de la timeline */
+.timeline-content {
+    background-color: rgba(0, 0, 0, 0.03); /* Fondo semitransparente */
+    padding: 1.5rem; /* Espaciado interno */
+    border-radius: var(--border-radius-sm); /* Bordes redondeados */
+    margin-left: 1.5rem; /* Margen para separar de la línea */
+    transition: var(--transition); /* Transición suave para hover */
+    box-shadow: var(--shadow-sm); /* Sombra sutil */
+    border-left: 3px solid var(--primary-color); /* Borde lateral decorativo */
+}
+
+/* Estilos específicos para modo oscuro */
+[data-theme="dark"] .timeline-content {
+    background-color: rgba(255, 255, 255, 0.03); /* Fondo más claro en modo oscuro */
+}
+
+/* Efecto hover para el contenido */
+.timeline-content:hover {
+    transform: translateX(5px); /* Desplazamiento horizontal */
+    box-shadow: var(--shadow-md); /* Sombra más pronunciada */
+}
+
+/* Título del contenido */
+.timeline-content h3 {
+    font-size: 1.1rem; /* Tamaño de fuente */
+    margin-bottom: 0.75rem; /* Espaciado inferior */
+    color: var(--primary-color); /* Color usando variable */
+}
+
+/* Texto del contenido */
+.timeline-content p, .timeline-content li {
+    color: var(--text-light); /* Color de texto secundario */
+    font-size: 0.95rem; /* Tamaño de fuente reducido */
+    line-height: 1.7; /* Espaciado entre líneas */
+}
+
+/* Listas dentro del contenido */
+.timeline-content ul {
+    padding-left: 1.2rem; /* Sangría */
+    margin-top: 0.75rem; /* Margen superior */
+}
+
+/* Elementos de lista */
+.timeline-content li {
+    margin-bottom: 0.5rem; /* Espaciado entre elementos */
+    list-style-type: disc; /* Viñetas */
+    position: relative; /* Para posicionamiento */
+    padding-left: 0.5rem; /* Espaciado interno */
+}
+
+/* Estilo de las viñetas */
+.timeline-content li::marker {
+    color: var(--primary-color); /* Color usando variable */
+}
+
+/* 
+    ================== HABILIDADES MEJORADAS ================== 
+    Estilos para la sección de habilidades, incluyendo barras de progreso
+    animadas y listas de habilidades personales.
+*/
+
+/* Contenedor de habilidades */
+.skills-container {
+    display: grid; /* Usa CSS Grid */
+    gap: 2rem; /* Espacio entre categorías */
+}
+
+/* Categoría de habilidades */
+.skill-category {
+    margin-bottom: 1.5rem; /* Espaciado entre categorías */
+}
+
+/* Título de categoría */
+.skill-category h3 {
+    font-size: 1.1rem; /* Tamaño de fuente */
+    margin-bottom: 1rem; /* Espaciado inferior */
+    color: var(--primary-color); /* Color usando variable */
+    display: flex; /* Flexbox para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 0.7rem; /* Espacio entre icono y texto */
+    padding-bottom: 0.5rem; /* Espaciado para el borde */
+    border-bottom: 1px dashed var(--primary-color); /* Borde inferior decorativo */
+}
+
+/* Icono de categoría */
+.skill-category h3 i {
+    font-size: 1rem; /* Tamaño del icono */
+    color: var(--secondary-color); /* Color usando variable */
+}
+
+/* Lista de habilidades */
+.skills-list {
+    display: grid; /* Usa CSS Grid */
+    gap: 1rem; /* Espacio entre elementos */
+}
+
+/* Item de habilidad */
+.skill-item {
+    display: flex; /* Flexbox para disposición */
+    flex-direction: column; /* Elementos en columna */
+    gap: 0.5rem; /* Espacio entre nombre y barra */
+}
+
+/* Nombre de la habilidad */
+.skill-name {
+    font-size: 0.95rem; /* Tamaño de fuente reducido */
+    font-weight: 500; /* Peso de fuente medio */
+    display: flex; /* Flexbox para alinear nombre y porcentaje */
+    justify-content: space-between; /* Separa nombre y porcentaje */
+    color: var(--text-color); /* Color usando variable */
+}
+
+/* Barra contenedora del nivel de habilidad */
+.skill-bar {
+    height: 10px; /* Altura fija */
+    background-color: rgba(0, 0, 0, 0.05); /* Fondo semitransparente */
+    border-radius: 5px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta el desbordamiento */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra interior para profundidad */
+}
+
+/* Estilos específicos para modo oscuro */
+[data-theme="dark"] .skill-bar {
+    background-color: rgba(255, 255, 255, 0.05); /* Fondo más claro en modo oscuro */
+}
+
+/* Barra de progreso de la habilidad */
+.skill-level {
+    height: 100%; /* Misma altura que el contenedor */
+    background: var(--gradient-primary); /* Gradiente de color */
+    border-radius: 5px; /* Bordes redondeados */
+    position: relative; /* Para posicionar el efecto de brillo */
+    overflow: hidden; /* Oculta desbordamiento */
+}
+
+/* Efecto de brillo animado */
+.skill-level::after {
+    content: ''; /* Necesario para pseudoelementos */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; /* Desde la parte superior */
+    left: 0; /* Desde la izquierda */
+    right: 0; /* Hasta la derecha */
+    bottom: 0; /* Hasta abajo */
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.3) 0%, 
+        rgba(255, 255, 255, 0) 50%, 
+        rgba(255, 255, 255, 0.3) 100%); /* Gradiente de brillo */
+    animation: shine 2s infinite; /* Animación infinita */
+}
+
+/* Keyframes para la animación de brillo */
+@keyframes shine {
+    0% { transform: translateX(-100%); } /* Comienza fuera a la izquierda */
+    100% { transform: translateX(100%); } /* Termina fuera a la derecha */
+}
+
+/* Lista de habilidades personales */
+.personal-skills li {
+    display: flex; /* Flexbox para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 0.7rem; /* Espacio entre icono y texto */
+    margin-bottom: 0.7rem; /* Espaciado entre elementos */
+    font-size: 0.95rem; /* Tamaño de fuente reducido */
+    padding: 0.5rem 0; /* Espaciado vertical */
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1); /* Borde inferior decorativo */
+    color: var(--text-color); /* Color usando variable */
+}
+
+/* Estilos específicos para modo oscuro */
+[data-theme="dark"] .personal-skills li {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1); /* Borde más claro en modo oscuro */
+}
+
+/* Iconos de habilidades personales */
+.personal-skills i {
+    color: var(--secondary-color); /* Color usando variable */
+    width: 20px; /* Ancho fijo */
+    text-align: center; /* Centrado horizontal */
+    font-size: 1rem; /* Tamaño del icono */
+}
+
+/* 
+================== OTROS DATOS MEJORADOS ================== 
+Estilos para secciones de información adicional con iconos y efectos hover.
+*/
+
+/* Contenedor de información adicional */
+.other-info {
+    display: grid; /* Usa CSS Grid */
+    gap: 1.2rem; /* Espacio entre elementos */
+}
+
+/* Item de información */
+.info-item {
+    display: flex; /* Flexbox para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 1.2rem; /* Espacio entre icono y texto */
+    padding: 1.2rem; /* Espaciado interno */
+    background-color: rgba(0, 0, 0, 0.03); /* Fondo semitransparente */
+    border-radius: var(--border-radius-sm); /* Bordes redondeados */
+    transition: var(--transition); /* Transición suave para hover */
+    box-shadow: var(--shadow-sm); /* Sombra sutil */
+}
+
+/* Estilos específicos para modo oscuro */
+[data-theme="dark"] .info-item {
+    background-color: rgba(255, 255, 255, 0.03); /* Fondo más claro en modo oscuro */
+}
+
+/* Efecto hover para los items */
+.info-item:hover {
+    transform: translateX(5px); /* Desplazamiento horizontal */
+    box-shadow: var(--shadow-md); /* Sombra más pronunciada */
+    background-color: rgba(0, 0, 0, 0.05); /* Fondo más opaco */
+}
+
+/* Estilos específicos para modo oscuro */
+[data-theme="dark"] .info-item:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Fondo más opaco en modo oscuro */
+}
+
+/* Iconos de información */
+.info-item i {
+    font-size: 1.5rem; /* Tamaño del icono */
+    color: var(--primary-color); /* Color usando variable */
+    min-width: 30px; /* Ancho mínimo */
+    text-align: center; /* Centrado horizontal */
+}
+
+/* Texto de información */
+.info-item p {
+    font-size: 0.95rem; /* Tamaño de fuente reducido */
+    color: var(--text-light); /* Color usando variable */
+    line-height: 1.6; /* Espaciado entre líneas */
+}
+
+/* 
+================== FOOTER MEJORADO ================== 
+Estilos para el pie de página con secciones de información,
+enlaces y redes sociales con efectos interactivos.
+*/
+
+/* Pie de página principal */
+.footer {
+    background-color: var(--footer-bg); /* Color de fondo usando variable */
+    color: var(--footer-text); /* Color de texto usando variable */
+    padding: 3rem 1rem 1.5rem; /* Espaciado interno (arriba, lados, abajo) */
+    position: relative; /* Para posicionar elementos hijos absolutos */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+    margin-top: 3rem; /* Margen superior */
+}
+
+/* Barra decorativa superior */
+.footer::before {
+    content: ''; /* Necesario para pseudoelementos */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; /* Alineado a la parte superior */
+    left: 0; /* Desde el borde izquierdo */
+    right: 0; /* Hasta el borde derecho */
+    height: 5px; /* Grosor de la línea */
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color)); /* Gradiente horizontal */
+}
+
+/* Contenedor del contenido del footer */
+.footer-container {
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    margin: 0 auto; /* Centrado horizontal */
+    display: grid; /* Usa CSS Grid */
+    grid-template-columns: 1fr; /* Una sola columna por defecto */
+    gap: 3rem; /* Espacio entre secciones */
+    position: relative; /* Para posicionamiento */
+    z-index: 1; /* Para estar sobre el fondo */
+}
+
+/* Media query para pantallas medianas (768px o más) */
+@media (min-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+    }
+}
+
+/* Sección individual del footer */
+.footer-section {
+    margin-bottom: 1.5rem; /* Margen inferior */
+}
+
+/* Título de sección */
+.footer-section h3 {
+    color: var(--footer-text); /* Color usando variable */
+    margin-bottom: 1.5rem; /* Espaciado inferior */
+    font-size: 1.3rem; /* Tamaño de fuente */
+    position: relative; /* Para el pseudoelemento decorativo */
+    padding-bottom: 0.75rem; /* Espaciado para el borde */
+    font-weight: 600; /* Peso de fuente semibold */
+}
+
+/* Barra decorativa bajo el título */
+.footer-section h3::after {
+    content: ''; /* Necesario para pseudoelementos */
+    position: absolute; /* Posicionamiento absoluto */
+    left: 0; /* Alineado a la izquierda */
+    bottom: 0; /* Alineado al borde inferior del título */
+    width: 50px; /* Ancho de la barra */
+    height: 3px; /* Grosor de la barra */
+    background: linear-gradient(90deg, var(--primary-color), transparent); /* Gradiente horizontal */
+    border-radius: 3px; /* Bordes redondeados */
+}
+
+/* Listas en el footer */
+.footer-section ul {
+    display: grid; /* Usa CSS Grid */
+    gap: 1rem; /* Espacio entre elementos */
+}
+
+/* Elementos de lista */
+.footer-section li {
+    font-size: 0.95rem; /* Tamaño de fuente reducido */
+    color: rgba(255, 255, 255, 0.85); /* Color semitransparente */
+    display: flex; /* Flexbox para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 0.8rem; /* Espacio entre icono y texto */
+    transition: var(--transition); /* Transición suave para hover */
+}
+
+/* Efecto hover para elementos de lista */
+.footer-section li:hover {
+    color: var(--primary-color); /* Cambio de color */
+    transform: translateX(5px); /* Desplazamiento horizontal */
+}
+
+/* Iconos en el footer */
+.footer-section li i {
+    width: 20px; /* Ancho fijo */
+    text-align: center; /* Centrado horizontal */
+    font-size: 1.1rem; /* Tamaño del icono */
+    color: var(--secondary-color); /* Color usando variable */
+}
+
+/* Enlaces en el footer */
+.footer-section a {
+    color: rgba(255, 255, 255, 0.85); /* Color semitransparente */
+    transition: var(--transition); /* Transición suave para hover */
+    display: flex; /* Flexbox para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 0.8rem; /* Espacio entre icono y texto */
+}
+
+/* Efecto hover para enlaces */
+.footer-section a:hover {
+    color: var(--primary-color); /* Cambio de color */
+}
+
+/* Contenedor de iconos sociales */
+.social-icons {
+    display: flex; /* Flexbox para disposición en línea */
+    gap: 1.2rem; /* Espacio entre iconos */
+    margin-top: 1.5rem; /* Margen superior */
+    flex-wrap: wrap; /* Permite que los iconos se envuelvan */
+}
+
+/* Iconos sociales individuales */
+.social-icons a {
+    display: flex; /* Flexbox para centrar contenido */
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    width: 45px; /* Ancho fijo */
+    height: 45px; /* Alto fijo (crea círculo perfecto) */
+    border-radius: 50%; /* Forma circular */
+    background-color: rgba(255, 255, 255, 0.08); /* Fondo semitransparente */
+    color: white; /* Color del icono */
+    transition: var(--transition); /* Transición suave para hover */
+    font-size: 1.2rem; /* Tamaño del icono */
+    position: relative; /* Para el efecto de hover */
+    overflow: hidden; /* Oculta desbordamiento */
+}
+
+/* Efecto de gradiente en hover */
+.social-icons a::after {
+    content: ''; /* Necesario para pseudoelementos */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; /* Desde la parte superior */
+    left: 0; /* Desde la izquierda */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background: var(--gradient-primary); /* Gradiente de color */
+    opacity: 0; /* Inicialmente transparente */
+    transition: var(--transition); /* Transición suave */
+    z-index: -1; /* Detrás del icono */
+}
+
+/* Efecto hover para iconos sociales */
+.social-icons a:hover {
+    transform: translateY(-3px) scale(1.1); /* Efecto de levitación y escala */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra */
+    color: white; /* Color del icono */
+}
+
+/* Muestra el gradiente en hover */
+.social-icons a:hover::after {
+    opacity: 1; /* Completa opacidad */
+}
+
+/* Sección inferior del footer */
+.footer-bottom {
+    text-align: center; /* Texto centrado */
+    padding-top: 2rem; /* Espaciado superior */
+    margin-top: 2rem; /* Margen superior */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Borde superior sutil */
+    font-size: 0.9rem; /* Tamaño de fuente reducido */
+    color: rgba(255, 255, 255, 0.7); /* Color semitransparente */
+    position: relative; /* Para el pseudoelemento decorativo */
+}
+
+/* Barra decorativa central en el borde superior */
+.footer-bottom::before {
+    content: ''; /* Necesario para pseudoelementos */
+    position: absolute; /* Posicionamiento absoluto */
+    top: -1px; /* Alineado al borde superior */
+    left: 50%; /* Centrado horizontal */
+    transform: translateX(-50%); /* Centrado preciso */
+    width: 100px; /* Ancho de la barra */
+    height: 2px; /* Grosor de la barra */
+    background: var(--primary-color); /* Color usando variable */
+}
+
+/* 
+    ================== RESPONSIVE DESIGN ================== 
+    Media queries para adaptar el diseño a diferentes tamaños de pantalla,
+    desde dispositivos móviles hasta pantallas extra grandes.
+*/
+
+/* 
+    Pantallas muy grandes (1400px o más) 
+    Ajustes para monitores de alta resolución y pantallas extra grandes
+*/
+@media (min-width: 1400px) {
+    /* Contenedor de la barra de navegación */
+    .navbar-container {
+        max-width: 1400px; /* Ancho máximo aumentado */
+    }
+    
+    /* Enlaces de navegación */
+    .nav-links {
+        gap: 2rem; /* Mayor espacio entre elementos */
+    }
+    
+    /* Estilos para cada enlace */
+    .nav-links li a {
+        padding: 0.8rem 1.5rem; /* Mayor espaciado interno */
+        font-size: 1rem; /* Tamaño de fuente estándar */
+    }
+    
+    /* Menú desplegable de idiomas */
+    .language-dropdown-content {
+        min-width: 220px; /* Ancho mínimo aumentado */
+    }
+    
+    /* Botón de descarga CV */
+    .download-cv-btn {
+        padding: 0.9rem 2rem; /* Mayor espaciado interno */
+        font-size: 0.95rem; /* Tamaño de fuente ligeramente aumentado */
+    }
+}
+
+/* 
+    Tablets y pantallas medianas (992px o menos) 
+    Ajustes para tablets y pantallas de portátiles pequeñas
+*/
+@media (max-width: 992px) {
+    /* Enlaces de navegación */
+    .nav-links {
+        gap: 1rem; /* Espacio reducido entre elementos */
+    }
+    
+    /* Estilos para cada enlace */
+    .nav-links li a {
+        padding: 0.6rem 1rem; /* Espaciado interno reducido */
+        font-size: 0.9rem; /* Tamaño de fuente reducido */
+    }
+    
+    /* Menú desplegable de idiomas */
+    .language-dropdown-content {
+        min-width: 180px; /* Ancho mínimo reducido */
+    }
+    
+    /* Botón de descarga CV */
+    .download-cv-btn {
+        padding: 0.7rem 1.5rem; /* Espaciado interno reducido */
+        font-size: 0.85rem; /* Tamaño de fuente reducido */
+    }
+}
+
+/* 
+    Tablets pequeñas y móviles grandes (768px o menos) 
+    Ajustes para dispositivos móviles en orientación horizontal y tablets pequeñas
+*/
+@media (max-width: 768px) {
+    /* Contenido del encabezado */
+    .header-content {
+        flex-direction: column; /* Disposición en columna */
+        text-align: center; /* Texto centrado */
+    }
+    
+    /* Barra de navegación */
+    .navbar {
+        padding: 0.8rem; /* Padding reducido */
+    }
+    
+    /* Contenedor de la barra de navegación */
+    .navbar-container {
+        flex-direction: column; /* Disposición en columna */
+        gap: 1.5rem; /* Espacio entre elementos */
+    }
+    
+    /* Enlaces de navegación */
+    .nav-links {
+        width: 100%; /* Ancho completo */
+        justify-content: center; /* Centrado horizontal */
+        gap: 0.8rem; /* Espacio reducido entre elementos */
+    }
+    
+    /* Estilos para cada enlace */
+    .nav-links li a {
+        padding: 0.6rem 1rem; /* Espaciado interno reducido */
+        font-size: 0.85rem; /* Tamaño de fuente reducido */
+    }
+    
+    /* Acciones de navegación (dropdown + botón) */
+    .nav-actions {
+        width: 100%; /* Ancho completo */
+        justify-content: center; /* Centrado horizontal */
+        flex-wrap: wrap; /* Permite envolver elementos */
+        gap: 1rem; /* Espacio entre elementos */
+    }
+    
+    /* Dropdown de idiomas */
+    .language-dropdown {
+        order: 1; /* Orden de visualización (primero) */
+    }
+
+    .download-cv-btn {
+        padding: 0.7rem 1.4rem; /* Espaciado más compacto */
+        font-size: 0.82rem; /* Tamaño de fuente reducido */
+        margin-top: 1.2rem; /* Margen superior ajustado */
+        gap: 0.5rem; /* Espacio entre icono/texto reducido */
+    }
+
+     /* Optimización para dispositivos táctiles */
+    .download-cv-btn:hover {
+        transform: none; /* Elimina levitación en móviles */
+    }
+
+    /* Contenido del dropdown de idiomas */
+    .language-dropdown-content {
+        position: fixed; /* Posicionamiento fijo */
+        top: auto; /* Posición automática */
+        right: 1rem; /* Margen derecho */
+        left: 1rem; /* Margen izquierdo */
+        min-width: auto; /* Ancho automático */
+        max-width: none; /* Sin ancho máximo */
+        transform: translateY(10px); /* Ligero desplazamiento inicial */
+        box-shadow: var(--shadow-xl); /* Sombra más pronunciada */
+    }
+    
+    /* Estado hover/focus del dropdown */
+    .language-dropdown:hover .language-dropdown-content,
+    .language-dropdown:focus-within .language-dropdown-content {
+        transform: translateY(0); /* Elimina desplazamiento */
+    }
+    
+    /* Contenido principal */
+    .main-content {
+        grid-template-columns: 1fr; /* Una sola columna */
+        padding: 0 1rem; /* Padding lateral reducido */
+    }
+    
+    /* Contenedor del footer */
+    .footer-container {
+        grid-template-columns: 1fr; /* Una sola columna */
+        text-align: center; /* Texto centrado */
+    }
+
+    /* Información de contacto */
+    .contact-info {
+        flex-direction: column; /* Disposición en columna */
+        align-items: center; /* Centrado horizontal */
+        gap: 1rem; /* Espacio entre elementos */
+    }
+
+    /* Elementos de contacto */
+    .contact-info p {
+        width: 100%; /* Ancho completo */
+        justify-content: center; /* Centrado horizontal */
+    }
+
+    /* Decoración del título en el footer */
+    .footer-section h3::after {
+        left: 50%; /* Centrado horizontal */
+        transform: translateX(-50%); /* Centrado preciso */
+    }
+
+    /* Iconos sociales */
+    .social-icons {
+        justify-content: center; /* Centrado horizontal */
+    }
+}
+
+/* 
+    Móviles muy pequeños (480px o menos) 
+    Ajustes específicos para dispositivos móviles pequeños
+*/
+@media (max-width: 480px) {
+    /* Barra de navegación */
+    .navbar {
+        padding: 0.5rem; /* Padding muy reducido */
+    }
+    
+    /* Enlaces de navegación */
+    .nav-links {
+        gap: 0.5rem; /* Espacio mínimo entre elementos */
+    }
+    
+    /* Estilos para cada enlace */
+    .nav-links li a {
+        padding: 0.5rem 0.8rem; /* Espaciado interno mínimo */
+        font-size: 0.8rem; /* Tamaño de fuente muy reducido */
+    }
+    
+    /* Iconos en los enlaces */
+    .nav-links li a i {
+        font-size: 0.9rem; /* Tamaño de iconos reducido */
+    }
+    
+    /* Botón del dropdown de idiomas */
+    .language-dropbtn {
+        padding: 0.6rem 1rem; /* Espaciado interno reducido */
+        font-size: 0.85rem; /* Tamaño de fuente reducido */
+    }
+    
+    /* Botón de descarga CV */
+    .download-cv-btn {
+        pad.download-cv-btn {
+        padding: 0.65rem 1.2rem; /* Espaciado mínimo */
+        font-size: 0.78rem; /* Fuente muy pequeña */
+        margin-top: 1rem; /* Margen superior mínimo */
+    }
+
+    /* Desactiva animaciones complejas en móviles */
+    .download-cv-btn:hover i.fa-download {
+        animation: none;
+    }
+    padding: 0.7rem 1.2rem; /* Espaciado interno muy reducido */
+        font-size: 0.8rem; /* Tamaño de fuente muy reducido */
+    }
+    
+    /* Contenido del dropdown de idiomas */
+    .language-dropdown-content {
+        right: 0.5rem; /* Margen derecho mínimo */
+        left: 0.5rem; /* Margen izquierdo mínimo */
+    }
+    
+    /* Opciones del dropdown */
+    .language-dropdown-content a {
+        padding: 0.7rem 1rem; /* Espaciado interno reducido */
+        font-size: 0.85rem; /* Tamaño de fuente reducido */
+    }
+}
+
+/* Móviles muy pequeños (360px o menos) */
+@media (max-width: 360px) {
+    .download-cv-btn {
+        width: 100%; /* Ancho completo */
+        justify-content: center; /* Centra el contenido */
+        padding: 0.6rem; /* Espaciado uniforme */
+    }
+
+/* 
+================== ANIMACIONES Y EFECTOS ================== 
+Definiciones de animaciones para mejorar la experiencia de usuario
+*/
+
+/* Animación de aparición gradual (fade in) */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; /* Inicia invisible */
+        transform: translateY(20px); /* Inicia desplazado hacia abajo */
+    }
+    to { 
+        opacity: 1; /* Termina completamente visible */
+        transform: translateY(0); /* Vuelve a posición normal */
+    }
+}
+
+/* Animación de flotación */
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0); /* Posición inicial y final */
+    }
+    50% { 
+        transform: translateY(-5px); /* Desplazamiento hacia arriba */
+    }
+}
+
+/* Aplica animación de aparición a las tarjetas de sección */
+.section-card {
+    animation: fadeIn 0.5s ease forwards; /* Duración y curva de animación */
+    opacity: 0; /* Inicialmente invisible */
+}
+
+/* Retrasos escalonados para las animaciones de las tarjetas */
+.section-card:nth-child(1) { animation-delay: 0.1s; }
+.section-card:nth-child(2) { animation-delay: 0.2s; }
+.section-card:nth-child(3) { animation-delay: 0.3s; }
+.section-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Aplica animación de flotación a iconos sociales al hacer hover */
+.social-icons a:hover {
+    animation: float 1.5s ease-in-out infinite; /* Animación continua */
+}
+
+/* 
+    ================== MEJORAS DE IMPRESIÓN ================== 
+    Estilos optimizados para cuando la página se imprime
+*/
+@media print {
+    /* Estilos base para el cuerpo */
+    body {
+        background-color: white; /* Fondo blanco */
+        color: black; /* Texto negro */
+        font-size: 12pt; /* Tamaño de fuente adecuado para impresión */
+    }
+
+    /* Elementos a ocultar en impresión */
+    .dark-mode-toggle, .navbar {
+        display: none; /* No se muestran */
+    }
+
+    /* Estilos del encabezado para impresión */
+    .header {
+        background: #2563eb !important; /* Fondo azul forzado */
+        color: white !important; /* Texto blanco forzado */
+        -webkit-print-color-adjust: exact; /* Asegura colores en WebKit */
+        print-color-adjust: exact; /* Estándar para imprimir colores */
+    }
+
+    /* Tarjetas de sección para impresión */
+    .section-card {
+        break-inside: avoid; /* Evita división entre páginas */
+        box-shadow: none; /* Sin sombras */
+        border: 1px solid #ddd; /* Borde sutil */
+    }
+
+    /* Estilos para enlaces en impresión */
+    a {
+        text-decoration: none; /* Sin subrayado */
+        color: #2563eb; /* Color azul estándar */
+    }
+
+    /* Estilos del footer para impresión */
+    .footer {
+        background: #1e293b !important; /* Fondo oscuro forzado */
+        color: white !important; /* Texto blanco forzado */
+        -webkit-print-color-adjust: exact; /* Asegura colores en WebKit */
+        print-color-adjust: exact; /* Estándar para imprimir colores */
+    }
+}
+}
